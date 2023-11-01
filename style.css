@@ -1,0 +1,168 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Century Ghotic", sans-serif;
+}
+
+:root{
+  --container-bg: #fff8d7;
+  --book-width: 250px;
+  --font-size: 16px;
+  --image-grid-width: 100px;
+}
+
+.text-small{
+  font-size: 12px;
+  color: gray;
+}
+
+.book-container{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--container-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.book {
+  aspect-ratio: 3/4;
+  width: calc(var(--book-width) + 50px);
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  perspective: 1000px;
+  box-shadow: rgb(33, 33, 33, .4) 10px 10px 10px 7px;
+}
+
+.book .cover {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  z-index: 1;
+}
+
+.book .cover .front-cover,
+.book .cover .back-cover {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  backface-visibility: hidden;
+  padding: 5px 0px 5px 5px;
+}
+
+.book .cover .front-cover{
+  background: url("./assets/cover-img.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.book .cover .back-cover {
+  background-color: #212121;
+  transform: rotateY(180deg);
+}
+
+.book .cover .back-cover .back-content,
+.book .content .page{
+  height: 100%;
+  width: 100%;
+}
+
+.book .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #212121;
+  padding: 5px 5px 5px 0px;
+  overflow: hidden;
+}
+
+.book .cover .back-cover .back-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  border-right: 1px solid #212121;
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 89%, rgba(255,254,241,1) 100%);
+}
+
+.book .cover .back-cover .back-content .back-image-grids{
+  display: flex;
+  gap: .5rem;
+}
+
+.book .cover .back-cover .back-content .back-image-solo{
+  display: flex;
+  justify-content: center;
+}
+
+.book .cover .back-cover .back-content .back-image-grids img{
+  object-fit: cover;
+  width: calc(var(--image-grid-width) + 20px);
+  aspect-ratio: 1;
+}
+
+.book .cover .back-cover .back-content .back-image-solo img{
+  object-fit: contain;
+  width: 85%;
+}
+
+.book .content .page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #212121;
+  background: rgb(232,229,201);
+  background: linear-gradient(90deg, rgba(255,254,241,1) 0%, rgba(255,255,255,1) 11%, rgba(255,255,255,1) 100%);
+  font-family: 'Arizonia', cursive;
+}
+
+.book .content .page span{
+  width: 80%;
+  margin-inline: auto;
+  text-align: justify;
+  font-size: calc(var(--font-size) + 8px);
+}
+
+@media (max-width: 720px) {
+  .book {
+    width: calc(var(--book-width) - 20px);
+  }
+
+  .book .content .page span{
+    font-size: calc(var(--font-size) + 2px);
+  }
+
+  .book .cover .back-cover .back-content .back-image-grids img{
+    width: calc(var(--image-grid-width) - 10px);
+  }
+}
+
+@media (max-width: 420px) {
+  .book {
+    width: calc(var(--book-width) - 70px);
+  }
+
+  .book .content .page span{
+    font-size: calc(var(--font-size) - 2px);
+  }
+
+  .book .cover .back-cover .back-content .back-image-grids img{
+    width: calc(var(--image-grid-width) - 30px);
+  }
+}
+
+
+
