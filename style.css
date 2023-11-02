@@ -169,6 +169,7 @@ body {
   opacity: 0;
   place-content: center;
   transition: display .8s;
+  padding-inline: 1rem;
 }
 
 .image-preview-contianer img{
@@ -203,11 +204,6 @@ body {
 
   .book .cover .back-cover .back-content .back-image-grids img{
     width: calc(var(--image-grid-width) - 30px);
-  }
-
-  .image-preview-contianer img{
-    width: 350px;
-    aspect-ratio: 2/3;
   }
 }
 
