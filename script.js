@@ -1,6 +1,9 @@
 const book = document.querySelector(".book");
 const cover = document.querySelector(".cover");
 const content = document.querySelector(".content");
+const images = document.querySelectorAll(".image");
+const previewContainer = document.querySelector(".image-preview-contianer");
+const previewImage = document.querySelector(".image-preview");
 
 let isBookOpen = false;
 const flipAngle = -110;
@@ -19,4 +22,16 @@ book.addEventListener("click", () => {
   }
 })
 
+images.forEach(image => {
+  image.addEventListener("mouseover", () => {
+    previewContainer.style.opacity = 1;
+    previewContainer.style.zIndex = 2;
+    previewImage.src = image.currentSrc;
+  })
 
+  image.addEventListener("mouseleave", () => {
+    previewContainer.style.opacity = 0;
+    previewContainer.style.zIndex = 0;
+    previewImage.src = "";
+  })
+})

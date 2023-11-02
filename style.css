@@ -28,6 +28,7 @@ body {
   gap: 2rem;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .book {
@@ -123,10 +124,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   border-left: 1px solid #212121;
   background: rgb(232,229,201);
   background: linear-gradient(90deg, rgba(255,254,241,1) 0%, rgba(255,255,255,1) 11%, rgba(255,255,255,1) 100%);
   font-family: 'Arizonia', cursive;
+}
+
+.book .content .page .page-image-container {
+  position: absolute;
+  background: #fff;
+  overflow: hidden;
+  padding: .2rem;
+  box-shadow: rgb(33, 33, 33, .1) 2px 2px 5px 4px;
+  bottom: .8rem;
+  transform: rotateZ(13deg);
+}
+
+.book .content .page .page-image-container img {
+  object-fit: contain;
+  width: 55px;
+  aspect-ratio: 2/4;
 }
 
 .book .content .page span{
@@ -134,6 +152,24 @@ body {
   margin-inline: auto;
   text-align: justify;
   font-size: calc(var(--font-size) + 8px);
+}
+
+.image-preview-contianer{
+  position: absolute;
+  background: #212121e4;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  opacity: 0;
+  place-content: center;
+  transition: display .8s;
+}
+
+.image-preview-contianer img{
+  width: 400px;
+  object-fit: contain;
+  object-position: center;
+  aspect-ratio: 2/3;
 }
 
 @media (max-width: 720px) {
