@@ -201,6 +201,10 @@ body {
   .book .cover .back-cover .back-content .back-image-grids img{
     width: calc(var(--image-grid-width) - 30px);
   }
+
+  .image-preview-contianer img{
+    width: 90%;
+  }
 }
 
 
