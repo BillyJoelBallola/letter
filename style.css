@@ -129,6 +129,9 @@ body {
   background: rgb(232,229,201);
   background: linear-gradient(90deg, rgba(255,254,241,1) 0%, rgba(255,255,255,1) 11%, rgba(255,255,255,1) 100%);
   font-family: 'Arizonia', cursive;
+  user-select: none;
+  -webkit-user-select: none; 
+  -moz-user-select: none;
 }
 
 .book .content .page .page-image-container {
@@ -203,7 +206,8 @@ body {
   }
 
   .image-preview-contianer img{
-    width: 90%;
+    width: 350px;
+    aspect-ratio: 2/3;
   }
 }
 
